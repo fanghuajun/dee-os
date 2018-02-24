@@ -1,10 +1,22 @@
-// https://github.com/michael-ciniawsky/postcss-load-config
-
 module.exports = {
-  "plugins": {
-    "postcss-import": {},
-    "postcss-url": {},
-    // to edit target browsers: use "browserslist" field in package.json
-    "autoprefixer": {}
-  }
+	"plugins": {
+		"postcss-import": {
+			path: [
+				'src/pages',
+				'node_modules'
+			]
+		},
+		"postcss-nesting": {
+			prefix: null
+		},
+		"postcss-css-variables": {
+			preserve: false
+		},
+		"postcss-cssnext": {
+			browsers: [
+				"> 1%",
+			    "last 2 versions"
+			]
+		},
+	}
 }

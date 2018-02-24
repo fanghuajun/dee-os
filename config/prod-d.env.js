@@ -1,5 +1,5 @@
 /**
- * @description 生产环境配置
+ * @description 测试环境配置
  * @author minfive
  * @date 2017-07-17, 10:43:15 GMTCST
  * @lastModify minfive
@@ -8,5 +8,5 @@
 
 
 module.exports = {
-	NODE_ENV: '"production"'
+    NODE_ENV: '"production-d"'
 }

@@ -1,5 +1,5 @@
 /**
- * @description build
+ * @description build测试版
  * @author minfive
  * @date 2017-07-17, 14:53:28 GMTCST
  * @lastModify minfive
@@ -7,13 +7,13 @@
  */
 
 const
-	path = require('path'),
-	ora = require('ora'),
-	rm = require('rimraf');
+    path = require('path'),
+    ora = require('ora'),
+    rm = require('rimraf');
 
 const config = require('../config');
 
-process.env.NODE_ENV = JSON.parse(config.build.env.NODE_ENV);
+process.env.NODE_ENV = JSON.parse(config['build:d'].env.NODE_ENV);
 
 const webpackConfig = require('./webpack.prod.config');
 
@@ -24,11 +24,11 @@ let spinner = ora('buildding for production...\n');
 spinner.start();
 
 rm(config.build.buildRoot, err => {
-	if (err) throw err;
+    if (err) throw err;
 
-	spinner.text = 'webpack build...';
+    spinner.text = 'webpack build...';
 
-	webpackCompile(webpackConfig, () => {
-		spinner.stop();
-	})
+    webpackCompile(webpackConfig, () => {
+        spinner.stop();
+    })
 });
