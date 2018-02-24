@@ -1,6 +1,6 @@
 {
-  "name": "vue-multiple-page",
-  "version": "1.0.1",
+  "name": "dee-os",
+  "version": "1.0.0",
   "description": "vue2 webpack3 postcss cli",
   "scripts": {
     "dev": "node build/dev.js",
@@ -18,7 +18,7 @@
     "异步加载",
     "优化"
   ],
-  "author": "minfive <chenxiaowu1994@outlook.com> (http://minfive.com)",
+  "author": "alfred<fhj@deechuang.com>(www.deechuang.com)",
   "license": "MIT",
   "devDependencies": {
     "add-asset-html-webpack-plugin": "^2.0.1",

@@ -2,7 +2,7 @@
 
 ## 简介
 
-该项目参考（https://github.com/Mrminfive/vue-multiple-page.git）的vue多页框架，用于中山蝶创软件开发的前端框架脚手架，目的是为了方便后续开发。脚手架默认配置es6-7-8＋cssnext+vue开发环境，但并不仅限于用vue做开发。并对webpack打包流程做了优化处理。支持单页／多页面开发，支持代码切割异步加载，有兴趣者请参阅[webpack中文文档#代码分离](https://doc.webpack-china.org/guides/code-splitting/)。
+该项目参考(https://github.com/Mrminfive/vue-multiple-page.git)的vue多页框架，用于中山蝶创软件开发的前端框架脚手架，目的是为了方便后续开发。脚手架默认配置es6-7-8＋cssnext+vue开发环境，但并不仅限于用vue做开发。并对webpack打包流程做了优化处理。支持单页／多页面开发，支持代码切割异步加载，有兴趣者请参阅[webpack中文文档#代码分离](https://doc.webpack-china.org/guides/code-splitting/)。
 
 对新语法不熟悉的同学请参阅：
 * es6: [阮一峰es6入门](http://es6.ruanyifeng.com/)
