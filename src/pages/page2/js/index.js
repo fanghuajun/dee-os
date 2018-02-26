@@ -7,4 +7,8 @@ common('page2');
 
 alert('ok');
 
+export default {
+    
+}
+
 console.log('page---')

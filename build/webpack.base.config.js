@@ -54,8 +54,8 @@ module.exports = {
 
     output: {
         path: config.buildRoot,
-        filename: pathJoin('js', '[name].[hash].js'),
-        chunkFilename: pathJoin('js', '[name].[hash].js'),
+        filename: pathJoin('js', '[name].[hash:8].js'),
+        chunkFilename: pathJoin('js', '[name].[hash:8].js'),
         publicPath: config.publicPath
     },
 
@@ -130,7 +130,8 @@ module.exports = {
     plugins: [
         // 提取css
         new ExtractTextPlugin({
-            filename: pathJoin('css', '[name].[hash:8].css')
+            filename: pathJoin('css', '[name].[hash:8].css'),
+        
         }),
 
         // 检测外部依赖包是否更新

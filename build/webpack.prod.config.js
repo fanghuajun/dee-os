@@ -37,7 +37,7 @@ module.exports = webpackMerge(baseWebpackConfig, {
 		}),
 
 		// banner条
-		new webpack.BannerPlugin('版权归友友传媒所有'),
+		new webpack.BannerPlugin('版权归中山金蝶软件有限公司所有'),
 
 		// 压缩css
 		new OptimizeCSSPlugin(),
@@ -81,9 +81,9 @@ module.exports = webpackMerge(baseWebpackConfig, {
 			chunks: [chunkName].concat(commonsChunk),
 			inject: true,
 			minify: {
-				removeComments: true,
-				collapseWhitespace: true,
-				removeAttributeQuotes: true
+				removeComments: false,
+				collapseWhitespace: false,
+				removeAttributeQuotes: false
 			},
 			showErrors: true,
 			chunksSortMode: function(chunk1, chunk2) {

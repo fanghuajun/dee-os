@@ -1,24 +1,20 @@
 /**
  * @description 开发环境webpack配置
- * @author minfive
- * @date 2017-07-17, 17:48:14 GMTCST
- * @lastModify minfive
- * @lastDate 2017-07-17, 17:48:14 GMTCST
+ * @author alfred
+ * @date 2018-02-26
+ * 
  */
 
-const
-	path = require('path'),
-	webpack = require('webpack'),
-	webpackMerge = require('webpack-merge');
+const path = require('path');
+const	webpack = require('webpack');
+const	webpackMerge = require('webpack-merge');
 
-const
-	HtmlWebpackPlugin = require('html-webpack-plugin'),
-	FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin'),
-	AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
+const	HtmlWebpackPlugin = require('html-webpack-plugin');
+const	FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin');
+const	AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
-const
-	baseWebpackConfig = require('./webpack.base.config'),
-	{ nowConfig, commonsChunkName } = require('./util');
+const baseWebpackConfig = require('./webpack.base.config');
+const	{ nowConfig, commonsChunkName } = require('./util');
 
 const config = nowConfig();
 
@@ -38,12 +34,14 @@ module.exports = webpackMerge(baseWebpackConfig, {
 
 		new FriendlyErrorsPlugin()
 	].concat(config.template.map(template => {
-		let chunkName = template.split(path.sep).slice(-2)[0];
+		let chunkPath = template.split(path.sep).slice(-2)[0];
+		let chunkName= template.split(path.sep).slice(-1)[0];
+		chunkName=chunkName.split(".")[0];
 
 		return new HtmlWebpackPlugin({
-			filename: chunkName + '.html',
+			filename: path.join(chunkPath,chunkName + '.html'),
 			template: template,
-			chunks: [chunkName].concat(commonsChunk),
+			chunks: [chunkPath].concat(commonsChunk),
 			chunksSortMode: function(chunk1, chunk2) {
 				let
 					entrys = Object.keys(config.entry),

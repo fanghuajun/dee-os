@@ -11,5 +11,10 @@ const
 	prodEnv = require('./prod.env');
 
 module.exports = merge(prodEnv, {
-	NODE_ENV: '"development"'
+	NODE_ENV: '"development"',
+	autoOpenBrowser:true,
+	errorOverlay: true,
+    notifyOnErrors: true,
+	poll: false, 
+	proxyTable: {},
 });

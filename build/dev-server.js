@@ -1,32 +1,27 @@
 /**
- * @description dev
- * @author minfive
- * @date 2017-07-17, 17:56:13 GMTCST
- * @lastModify minfive
- * @lastDate 2017-07-25, 17:18:17 GMTCST
+ * @description 开发环境的配置信息
+ * @author alfred
+ * @date 2017-02-23
  */
+let path = require('path');
+let express = require('express');
+let webpack = require('webpack');
 
-let 
-    path = require('path'),
-    express = require('express'),
-    webpack = require('webpack'),
-    webpackDevMiddleware = require('webpack-dev-middleware'),
-    webpackHotMiddleware = require('webpack-hot-middleware'),
-    proxyMiddleware = require('http-proxy-middleware'),
-    chalk = require('chalk'),
-    opn = require('opn');
+let webpackDevMiddleware = require('webpack-dev-middleware');
+let webpackHotMiddleware = require('webpack-hot-middleware');
+let proxyMiddleware = require('http-proxy-middleware');
+let chalk = require('chalk');
+let opn = require('opn');
 
-let 
-    config = require('../config').dev,
-    app = express();
+let config = require('../config').dev;
+let app = express();
 
 process.env.NODE_ENV = JSON.parse(config.env.NODE_ENV);
 
 const webpackConfig = require('./webpack.dev.config');
 
-const 
-    port = process.env.PORT || config.port || 4001,
-    url = `http://localhost:${port}`;
+const port = process.env.PORT || config.port || 4001;
+const url = `http://localhost:${port}`;
 
 function addHRM(entry) {
     let result = {};
