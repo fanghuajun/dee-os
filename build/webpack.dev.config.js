@@ -22,7 +22,11 @@ const commonsChunk = commonsChunkName();
 
 module.exports = webpackMerge(baseWebpackConfig, {
 	// devtool: '#cheap-module-eval-source-map',
-
+ resolve: {
+        alias: {
+            'vue': 'vue/dist/vue.js'
+        }
+    },
 	plugins: [
 		new webpack.DefinePlugin({
 			'process.env': config.env

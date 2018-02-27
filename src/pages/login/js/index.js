@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Login from '../components/login.vue';
-
 new Vue({
     el: '#login',
     data: {
@@ -8,5 +7,8 @@ new Vue({
         no: false,
         age: 28,
         name: 'keepfool'
+    },
+    components:{
+    	Login
     }
 });

@@ -10,7 +10,7 @@
 import Vue from 'vue';
 import router from './router';
 import app from 'Spa@comp/app';
-
+console.log(app)
 new Vue({
     router,
     ...app
