@@ -30,7 +30,8 @@ module.exports = {
 		Static: 'static',
 		'@': 'pages',
 		'Spa@': 'pages/index',
-		'Spa@comp': 'pages/index/js/components'
+		'Spa@comp': 'pages/index/js/components',
+		'vue': 'vue/dist/vue.js'
 	},
 	// 外部扩展
 	externals: {
@@ -44,7 +45,8 @@ module.exports = {
 	library: [
 		'axios',
 		'vue',
-		'vue-router'
+		'vue-router',
+		'element-ui',
 	],
 	// 要引进外部资源库的页面(为空则全部引入)
 	libraryEntry: [],
@@ -52,13 +54,21 @@ module.exports = {
 	port: 8009,
 	// 本地开发代理
 	proxy: {
-		// '/api': {
-		// 	target: "http://*.com",
-		// 	changeOrigin: true,
-		// 	pathRewrite: {
-		// 		'^/api': ''
-		// 	},
-		// 	logLevel: 'error'
-		// }
+		'/oauth':{
+			target: "http://localhost:8081/",
+			changeOrigin: true
+		},
+		'/auth': {
+			target: "http://localhost:8081/",
+			changeOrigin: true
+		},
+		'/base/*': {
+			target: "http://localhost:7082/base/",
+			changeOrigin: true,
+			pathRewrite: {
+				'^/base': ''
+			},
+			logLevel: 'error'
+		}
 	}
 }

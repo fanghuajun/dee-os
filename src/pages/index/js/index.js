@@ -10,8 +10,11 @@
 import Vue from 'vue';
 import router from './router';
 import app from 'Spa@comp/app';
-console.log(app)
+import GlobalStore from '../../common/js/globalStore.js';
+const store=GlobalStore.store;
+
 new Vue({
     router,
+    store,
     ...app
 }).$mount('#app');

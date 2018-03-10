@@ -2,7 +2,6 @@ const
     path = require('path')
     webpack = require('webpack')
     Glob = require('glob').Glob;
-
 const 
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
@@ -56,12 +55,12 @@ module.exports = {
         path: config.buildRoot,
         filename: pathJoin('js', '[name].[hash:8].js'),
         chunkFilename: pathJoin('js', '[name].[hash:8].js'),
-        publicPath: config.publicPath
+        publicPath: pathJoin('..',config.publicPath)
     },
 
     resolve: {
         extensions: ['.js', '.vue', '.json', '.css'],
-        alias: config.commonAlias
+        alias: Object.assign({},config.commonAlias,{'vue': 'vue/dist/vue.js'})
     },
 
     externals: config.externals,
@@ -93,7 +92,6 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
                         fallback: 'style-loader',
                         use: [
@@ -115,7 +113,7 @@ module.exports = {
             },
             {
                 test: /\.(woff2?|eot|ttf|otf)$/i,
-                exclude: /node_modules/,
+               // exclude: /node_modules/,
                 use: {
                     loader: 'url-loader',
                     options: {
@@ -144,7 +142,7 @@ module.exports = {
         new AddAssetHtmlPlugin([
             {
                 filepath: pathJoin(config.assetsRoot, config.staticAssets, 'libs/js/vendors.js'),
-                publicPath: pathJoin(config.publicPath, config.staticAssets, 'libs/js'),
+                publicPath: pathJoin('../',config.publicPath, config.staticAssets, 'libs/js'),
                 outputPath: pathJoin(config.staticAssets, 'libs/js'),
                 files: config.libraryEntry.map(entry => entry + '.html'),
                 includeSourcemap: false

@@ -30,7 +30,6 @@ function getEntrySetting() {
 		.found
 		.forEach(file => {
 			let pageName = file.split('/')[0];
-
 			result.entry[pageName] = getPath('pages', pageName, 'js', 'index.js');
 			result.template.push(getPath('pages', file));
 		});
@@ -41,8 +40,8 @@ function getEntrySetting() {
 let setting = getEntrySetting();
 
 let baseConfig = Object.assign({}, base, {
-	entry: base.isMultiplePage ? setting.entry : { index: getPath('pages/index/js/index.js') ,login: getPath('pages/login/js/login.js')},
-	template: base.isMultiplePage ? setting.template : [getPath('pages/index/index.html'),getPath('pages/login/login.html')],
+	entry: base.isMultiplePage ? setting.entry : { index: getPath('pages/index/js/index.js') },
+	template: base.isMultiplePage ? setting.template : [getPath('pages/index/index.html')],
 	outputPath: base.buildRoot,
 	commonAlias: mapObject(base.commonAlias, value => getPath(value))
 });

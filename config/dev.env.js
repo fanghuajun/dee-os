@@ -12,9 +12,5 @@ const
 
 module.exports = merge(prodEnv, {
 	NODE_ENV: '"development"',
-	autoOpenBrowser:true,
-	errorOverlay: true,
-    notifyOnErrors: true,
-	poll: false, 
-	proxyTable: {},
+	
 });
